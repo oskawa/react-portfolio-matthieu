@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react"
+import React from "react"
 import styles from "./grid.module.scss"
 import { SizeGridEnum, SizeGridType } from "../../types/ui.types"
 

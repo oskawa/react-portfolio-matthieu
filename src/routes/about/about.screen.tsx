@@ -1,4 +1,3 @@
-import { CSSProperties } from "react"
 import { useEffect, useState } from "react"
 // import { Home } from "../../types/definition.type"
 import http from "../../api/http"
