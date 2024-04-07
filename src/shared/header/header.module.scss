@@ -1,4 +1,44 @@
-.header {
+header {
+  position: absolute;
+  width: 100%;
+  padding-top: 40px;
+  a,
+  p {
+    text-decoration: none;
+    color: #f8f2e8;
+  }
+  .heroLeft {
+    a {
+      font-weight: 500;
+      font-size: 15px;
+    }
+  }
+  .heroRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .heroMenu {
+      a {
+        font-size: 15px;
+        &:not(:last-child) {
+          margin-right: 70px;
+        }
+      }
+      .countPortfolio {
+        color: #f8f2e8;
+      }
+    }
+    .heroTime {
+      p {
+        font-size: 15px;
+      }
+    }
+  }
   .active {
   }
+}
+
+* {
+  font-family: "Switzer", sans-serif;
+  color: #1e1e1e;
 }

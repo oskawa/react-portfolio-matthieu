@@ -1,21 +1,43 @@
+.heroProjects {
+  background-color: #1e1e1e;
+  aspect-ratio: 16/6;
+  h1,
+  span {
+    color: #f8f2e8;
+    font-size: 130px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.1px;
+  }
+}
 .projectsListing {
-  padding: 100px 0;
+  padding: 50px 0;
+  h2 {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 60px;
+    color: #1e1e1e;
+    text-transform: uppercase;
+  }
   .projectsList {
     padding: 0;
     margin: 0;
     list-style: none;
     li {
       a {
-        color: black;
+        color: #1e1e1e;
         padding: 2rem 0;
         border-top: 1px solid black;
         text-transform: uppercase;
         display: block;
         text-decoration: none;
+        font-size: 32px;
       }
       &:last-child {
         a {
-          border-bottom: 1px solid black;
+          border-bottom: 1px solid #1e1e1e;
         }
       }
     }

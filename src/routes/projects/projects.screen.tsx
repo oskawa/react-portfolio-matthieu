@@ -27,18 +27,34 @@ export function ProjectsScreen() {
     }
   }
   useEffect(() => { fetchData() }, [])
-  return (
-    <section className={styles.projectsListing}>
-      <Grid>
-        <div className={GridClasses.col12}>
-          <h2>Selected Projects</h2>
-        </div>
-        <div className={GridClasses.col12}>
-          <ul className={styles.projectsList}>
-            {projects.map((project) => <li key={project.id}><Link to={replaceUrlParams(path.project, { slug: project.slug })}>{project.title.rendered}</Link></li>)}
-          </ul>
+  return (<div>
+    <section className={`${styles.heroProjects}`}>
+      <Grid otherClass="h100">
+        <div className={GridClasses.flex}>
+          <div className={GridClasses.col9}>
+            <h1>
+              Selected design<br />
+              <span></span> Works
+            </h1>
+          </div>
         </div>
       </Grid>
     </section>
+
+    <section className={styles.projectsListing}>
+      <Grid>
+        <div className={GridClasses.flex}>
+          <div className={GridClasses.col12}>
+            <h2>Selected works</h2>
+          </div>
+          <div className={GridClasses.col12}>
+            <ul className={styles.projectsList}>
+              {projects.map((project) => <li key={project.id}><Link to={replaceUrlParams(path.project, { slug: project.slug })}>{project.title}</Link></li>)}
+            </ul>
+          </div>
+        </div>
+      </Grid>
+    </section>
+  </div>
   )
 }

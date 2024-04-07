@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom"
 import http from "../../api/http"
 import { useEffect, useState } from "react"
 import LayoutsFactory from "./components/layout.factory/layout.factory"
-
+import styles from "./projectScreen.module.scss"
+import Grid from "../../shared/grid/grid"
+import GridClasses from "../../shared/grid/grid.module.scss"
 export function ProjectScreen() {
   const [project, setProject] = useState([])
   const [loading, setLoading] = useState<boolean>(true)
@@ -13,7 +15,7 @@ export function ProjectScreen() {
 
   async function fetchData() {
     try {
-      const response = await http.get('portfolio?slug=' + slug)
+      const response = await http.get('portfolio/' + slug)
       setProject(response.data)
       setLoading(false)
       setError(false)
@@ -24,9 +26,17 @@ export function ProjectScreen() {
     }
   }
   useEffect(() => { fetchData() }, [])
+
   if (project?.[0]) {
     return <div>
-      {project[0]?.acf?.repeatable_content.map((layout) => <LayoutsFactory name={layout?.acf_fc_layout} {...layout} />)
+      <Grid typeClass="containerFluid">
+        <section className={`${styles.heroProject}`}>
+          <h1 className={`${styles.heroTitle}`}>
+            {project[0].title}
+          </h1>
+        </section>
+      </Grid>
+      {project[0]?.repeatable_content?.map((layout) => <LayoutsFactory name={layout?.acf_fc_layout} {...layout} />)
       }
     </div>
   }

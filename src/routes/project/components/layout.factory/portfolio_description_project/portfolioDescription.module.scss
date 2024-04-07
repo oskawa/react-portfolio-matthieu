@@ -1,0 +1,24 @@
+.descriptionProject {
+  padding-top: 35px;
+  padding-bottom: 24px;
+  .title {
+    font-size: 49px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 58px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 86px;
+  }
+
+  .paragraph {
+    columns: 2;
+    font-size: 18px;
+    p {
+      margin: 0;
+      padding: 0;
+      letter-spacing: -0.3px;
+      line-height: 21px;
+    }
+  }
+}

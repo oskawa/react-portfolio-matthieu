@@ -1,4 +1,4 @@
-.heroHome {
+.heroAbout {
   background-color: #1e1e1e;
   aspect-ratio: 16/6;
   h1,
@@ -10,21 +10,24 @@
     letter-spacing: -0.1px;
   }
 }
-.homeDescription {
-  padding: 130px 0;
-  .homeDescription_title {
+
+.aboutDescription {
+  padding-top: 160px;
+  .aboutDescription_title {
     font-weight: 600;
     font-size: 20px;
     margin: 0;
     padding: 0;
   }
-  .homeDescription_paragraph {
+  .aboutDescription_paragraph {
     p {
-      font-size: 67px;
-      text-indent: 35%;
+      font-size: 49px;
+      // text-indent: 35%;
       color: #1a1a1a;
       margin: 0;
       padding: 0;
+      margin-bottom: 90px;
+      line-height: 68px;
     }
   }
 }

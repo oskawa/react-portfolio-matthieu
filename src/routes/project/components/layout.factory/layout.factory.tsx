@@ -1,9 +1,16 @@
-import { ClassicImage } from "./classic_image/classicImage";
-import { TitleTextContent } from "./title_text_content/titleTextContent";
+import { PortfolioImageFullWidth } from "./portfolio_image_full_width/portfolioImageFullWidth";
+import { PortfolioDescriptionClient } from "./portfolio_description_client_project/portfolioDescriptionClient";
+import { PortfolioDescriptionProject } from "./portfolio_description_project/portfolioDescriptionProject";
+import { PortfolioImagePadding } from "./portfolio_image_padding/portfolioImagePadding";
+import { PortfolioDescriptionBis } from "./portfolio_description_bis/portfolioDescriptionBis";
 
 const layouts = {
-  'classic_image': ClassicImage,
-  'title_text_content': TitleTextContent
+  'portfolio_image_full_width': PortfolioImageFullWidth,
+  'portfolio_description_client_project': PortfolioDescriptionClient,
+  'portfolio_description_project': PortfolioDescriptionProject,
+  'portfolio_image_padding': PortfolioImagePadding,
+  'portfolio_description_bis': PortfolioDescriptionBis,
+
 } as const
 
 export default function LayoutsFactory({ name, ...props }: { name: keyof typeof layouts }) {
