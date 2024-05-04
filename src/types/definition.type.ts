@@ -10,6 +10,11 @@ export type Home = {
   section_title: string,
   section_paragraph: string
 }[]
+export type Featured = {
+  portfolio_title: string,
+  portfolio_img: string,
+  portfolio_slug: string
+}[]
 
 
 

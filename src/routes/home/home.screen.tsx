@@ -1,15 +1,17 @@
-import { CSSProperties } from "react"
 import { useEffect, useState } from "react"
-import { Home } from "../../types/definition.type"
+import { Featured, Home } from "../../types/definition.type"
 import http from "../../api/http"
 import Grid from "../../shared/grid/grid"
 import styles from "./homeScreen.module.scss"
 import GridClasses from "../../shared/grid/grid.module.scss"
 import { ProjectsScreen } from "../projects/projects.screen"
+import Slider from "../../shared/slider/slider";
+
 
 
 export function HomeScreen() {
   const [home, setHome] = useState<Home>([])
+  const [featured, setFeatured] = useState<Featured>([])
 
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
@@ -17,7 +19,9 @@ export function HomeScreen() {
   async function fetchData() {
     try {
       const response = await http.get('home')
+      const responseFeatured = await http.get('featuredHome')
       setHome(response.data)
+      setFeatured(responseFeatured.data)
       setLoading(false)
       setError(false)
       console.log(response.data)
@@ -25,9 +29,6 @@ export function HomeScreen() {
       setLoading(false)
       setError(true)
     }
-
-
-
   }
   useEffect(() => { fetchData() }, [])
   if (home?.[0]) {
@@ -44,6 +45,11 @@ export function HomeScreen() {
           </div>
         </Grid>
       </section>
+      <section className={`${styles.heroSlider}`}>
+        <Grid typeClass="containerFluid" otherClass="h100">
+          {featured ? <Slider featuredProjects={featured} /> : ''}
+        </Grid>
+      </section>
       <section className={`${styles.homeDescription}`}>
         <Grid>
           <div className={GridClasses.flex}>
@@ -57,8 +63,7 @@ export function HomeScreen() {
         </Grid>
       </section>
       <section className={styles.homeProjects}>
-        <ProjectsScreen />
-
+        <ProjectsScreen title='Selected work' showCTA={true} />
       </section>
     </div>
 
