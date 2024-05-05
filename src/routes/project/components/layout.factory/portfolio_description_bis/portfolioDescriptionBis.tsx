@@ -9,7 +9,7 @@ export function PortfolioDescriptionBis({ ...props }) {
 
       <Grid>
         <div className={`${GridClasses.flex} ${GridClasses.flexCenter}`}>
-          <div className={GridClasses.col10}>
+          <div className={GridClasses.col8}>
             {props.title && (
               <h4 className={styles.title}>{props.title}</h4>
             )}
