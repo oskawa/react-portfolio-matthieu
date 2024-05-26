@@ -9,6 +9,15 @@
     line-height: 1;
     letter-spacing: -0.1px;
   }
+  span {
+    background-image: url(../../assets/arrow-hero.svg);
+    width: 83px;
+    height: 83px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: inline-flex;
+  }
 }
 .homeDescription {
   padding: 130px 0;

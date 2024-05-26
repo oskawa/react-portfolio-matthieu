@@ -12,6 +12,19 @@ footer {
     font-weight: 500;
     letter-spacing: -0.1px;
     margin-bottom: 96px;
+    display: flex;
+    align-items: center;
+    &:after {
+      content: "";
+      background-image: url(../../assets/collaborate.svg);
+      display: block;
+      width: 100px;
+      height: 85px;
+      margin-left: 15px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
   .footerSocials {
     p {
@@ -35,6 +48,19 @@ footer {
           color: #f8f2e8;
           font-size: 28px;
           text-decoration: none;
+          display: flex;
+          align-items: center;
+          &:after {
+            content: "";
+            background-image: url(../../assets/mat-arrow-footer.svg);
+            display: block;
+            width: 16px;
+            height: 16px;
+            margin-left: 12px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
         }
       }
     }

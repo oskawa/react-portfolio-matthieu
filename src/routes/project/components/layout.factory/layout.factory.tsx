@@ -3,6 +3,7 @@ import { PortfolioDescriptionClient } from "./portfolio_description_client_proje
 import { PortfolioDescriptionProject } from "./portfolio_description_project/portfolioDescriptionProject";
 import { PortfolioImagePadding } from "./portfolio_image_padding/portfolioImagePadding";
 import { PortfolioDescriptionBis } from "./portfolio_description_bis/portfolioDescriptionBis";
+import { PortfolioPdf } from "./portfolio_pdf/portfolioPdf";
 
 const layouts = {
   'portfolio_image_full_width': PortfolioImageFullWidth,
@@ -10,6 +11,7 @@ const layouts = {
   'portfolio_description_project': PortfolioDescriptionProject,
   'portfolio_image_padding': PortfolioImagePadding,
   'portfolio_description_bis': PortfolioDescriptionBis,
+  'portfolio_pdf': PortfolioPdf,
 
 } as const
 

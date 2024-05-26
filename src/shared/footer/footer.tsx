@@ -3,9 +3,27 @@ import Grid from "../grid/grid";
 
 import styles from './footer.module.scss'
 import GridClasses from "../../shared/grid/grid.module.scss"
-
+import React, { useState, useEffect } from 'react';
+import http from "../../api/http"
 
 export default function Footer() {
+  const [socials, setsocials] = useState({});
+
+  useEffect(() => { fetchSocials() }, [])
+
+  async function fetchSocials() {
+    try {
+      const response = await http.get('options')
+      setsocials(response.data)
+
+      // setLoading(false)
+      // setError(false)
+
+    } catch (error) {
+      // setLoading(false)
+      // setError(true)
+    }
+  }
   return (
     <footer>
       <Grid>
@@ -19,28 +37,19 @@ export default function Footer() {
             <p>Socials</p>
           </div>
           <div className={GridClasses.col12}>
-            <ul>
-              <li>
-                <a href="">
-                  Dribble
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  Linkedin
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  Behance
-                </a>
-              </li>
-            </ul>
+            {socials && Object.keys(socials).length > 0 ? (
+              <ul>
+                {Object.entries(socials).map(([key, value]) => (
+                  <li key={key}>
+                    <a target="_blank" href={value.link}>{value.name}</a>
+
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div>No socials data available</div>
+            )}
+
           </div>
         </div>
       </Grid>

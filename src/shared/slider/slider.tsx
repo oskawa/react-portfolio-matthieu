@@ -18,6 +18,7 @@ export default function Slider(featuredProject: Project) {
       }
     });
   });
+  console.log('Images : ')
   console.log(allImages)
 
   return (
@@ -28,6 +29,8 @@ export default function Slider(featuredProject: Project) {
         images={allImages}
         showBullets={false}
         showNavs={false}
+        autoPlay={true}
+        loop={true}
       />
     </div>
 

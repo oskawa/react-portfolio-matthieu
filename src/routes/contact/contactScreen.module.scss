@@ -13,6 +13,15 @@
     margin: 0;
     padding: 0;
   }
+  span {
+    background-image: url(../../assets/arrow-hero.svg);
+    width: 83px;
+    height: 83px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: inline-flex;
+  }
   h2 {
     color: #f8f2e8;
     font-size: 85px;
