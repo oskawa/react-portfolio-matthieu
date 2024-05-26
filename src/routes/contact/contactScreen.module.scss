@@ -29,3 +29,42 @@
     padding: 0;
   }
 }
+.footerSocials {
+  p {
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 27px;
+    color: #f8f2e8;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    li {
+      a {
+        color: #f8f2e8;
+        font-size: 28px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        &:after {
+          content: "";
+          background-image: url(../../assets/mat-arrow-footer.svg);
+          display: block;
+          width: 16px;
+          height: 16px;
+          margin-left: 12px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}

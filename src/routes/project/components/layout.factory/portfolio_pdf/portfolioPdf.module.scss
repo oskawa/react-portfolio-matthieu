@@ -1,0 +1,13 @@
+.portfolioPdf {
+  display: flex;
+  justify-content: center;
+  .pdfInner {
+    height: 100%;
+    .react-pdf__Document {
+      height: 100%;
+      .react-pdf__Page {
+        height: 100%;
+      }
+    }
+  }
+}

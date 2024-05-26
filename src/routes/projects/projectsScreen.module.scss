@@ -43,6 +43,19 @@
         display: block;
         text-decoration: none;
         font-size: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &:after {
+          content: "";
+          background-image: url("../../assets/arrow-project.svg");
+          display: block;
+          width: 20px;
+          height: 20px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
       }
       &:last-child {
         a {
