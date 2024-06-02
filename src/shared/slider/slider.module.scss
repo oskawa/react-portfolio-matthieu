@@ -1,3 +1,11 @@
-.rsis-image {
-  background-position: center !important;
+.slider {
+  background-color: yellow;
+  .rsis-container {
+    background-color: red !important;
+  }
+  .rsis-image {
+    background-position: center !important;
+  }
 }
+
+// aspect-ratio:16/9

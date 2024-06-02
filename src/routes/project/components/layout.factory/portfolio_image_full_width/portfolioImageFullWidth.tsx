@@ -8,7 +8,7 @@ export function PortfolioImageFullWidth({ ...props }) {
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
-      height: '100vh',
+      aspectRatio: '16/9'
       // Add any other styles you want for the div
     };
     return <div style={backgroundImageStyle}></div>;

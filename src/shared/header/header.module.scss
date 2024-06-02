@@ -2,6 +2,7 @@ header {
   position: absolute;
   width: 100%;
   padding-top: 40px;
+  z-index: 100;
   a,
   p {
     text-decoration: none;
@@ -18,6 +19,9 @@ header {
     justify-content: space-between;
     align-items: center;
     .heroMenu {
+      display: block;
+      margin: auto;
+      margin-right: 0;
       a {
         font-size: 15px;
         &:not(:last-child) {
@@ -29,6 +33,9 @@ header {
       }
     }
     .heroTime {
+      span {
+        color: white;
+      }
       p {
         font-size: 15px;
       }

@@ -3,11 +3,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 16/6;
+  // aspect-ratio: 16/6;
+  height: 90vh;
 }
 
 .heroTitle {
   font-size: 75px;
   font-weight: 500;
   color: #f8f2e8;
+}
+
+.projectType {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 4rem;
+  width: 1400px;
+  margin: auto;
+  transform: translateX(4%);
+
+  p {
+    font-size: 15px;
+    color: white;
+    letter-spacing: -0.1px;
+  }
 }

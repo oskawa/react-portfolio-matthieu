@@ -35,6 +35,14 @@ export function ProjectScreen() {
             {project[0].title}
           </h1>
         </section>
+        <div className={styles.projectType}>
+          <div>
+            <p>{project[0].project_type}</p>
+          </div>
+          <div>
+            <p>{project[0].application_type}</p>
+          </div>
+        </div>
       </Grid>
       {project[0]?.repeatable_content?.map((layout) => <LayoutsFactory name={layout?.acf_fc_layout} {...layout} />)
       }

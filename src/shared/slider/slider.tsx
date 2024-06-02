@@ -1,6 +1,6 @@
 import React from 'react';
 import SimpleImageSlider from "react-simple-image-slider";
-import style from "./slider.module.scss";
+import styles from "./slider.module.scss";
 
 
 type Project = { portfolio_title: string, portfolio_img: string, portfolio_slug: string }
@@ -18,11 +18,10 @@ export default function Slider(featuredProject: Project) {
       }
     });
   });
-  console.log('Images : ')
-  console.log(allImages)
+
 
   return (
-    <div>
+    <div className={styles.slider}>
       <SimpleImageSlider
         width={'100vw'}
         height={'100vh'}

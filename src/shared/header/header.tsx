@@ -52,9 +52,7 @@ export default function Header() {
               <NavLink className={getActiveClass} to={path.about}>About</NavLink>
               <NavLink className={getActiveClass} to={path.contact}>Contact</NavLink>
             </div>
-            <div className={styles.heroTime}>
-              <p>Paris (GMT+1) <span>{parisTime}</span></p>
-            </div>
+
           </div>
         </div>
       </Grid>

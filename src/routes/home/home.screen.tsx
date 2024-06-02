@@ -63,7 +63,7 @@ export function HomeScreen() {
         </Grid>
       </section>
       <section className={styles.homeProjects}>
-        <ProjectsScreen title='Selected work' showCTA={true} />
+        <ProjectsScreen title='Selected work' showCTA={true} isHome={true} />
       </section>
     </div>
 

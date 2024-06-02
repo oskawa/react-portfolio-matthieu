@@ -13,6 +13,7 @@ export function PortfolioPdf({ ...props }) {
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerHeight, setContainerHeight] = useState<number>();
   const maxHeight = window.innerHeight;
+  const [pageNumber, setPageNumber] = useState<number>(1);
 
   const onResize = useCallback<ResizeObserverCallback>((entries) => {
     const [entry] = entries;
@@ -24,8 +25,8 @@ export function PortfolioPdf({ ...props }) {
 
 
 
-  function onDocumentLoadSuccess({ numPages: nextNumPages }: PDFDocumentProxy): void {
-    setNumPages(nextNumPages);
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages);
   }
   if (props) {
 
@@ -47,14 +48,18 @@ export function PortfolioPdf({ ...props }) {
 
         <div className={styles.pdfInner}>
           <Document file={props.pdf_file.url} onLoadSuccess={onDocumentLoadSuccess}>
-            {Array.from(new Array(numPages), (el, index) => (
+            {/* {Array.from(new Array(numPages), (el, index) => (
               <Page
                 renderTextLayer={false}
                 key={`page_${index + 1}`}
                 pageNumber={index + 1}
                 height={containerHeight ? Math.min(containerHeight, maxHeight) : maxHeight}
               />
-            ))}
+            ))} */}
+            <Page pageNumber={pageNumber} />
+            <p>
+              Page {pageNumber} of {numPages}
+            </p>
           </Document>
         </div>
       </section>

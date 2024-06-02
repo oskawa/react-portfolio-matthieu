@@ -1,6 +1,6 @@
 .heroContact {
   background-color: #1e1e1e;
-  // aspect-ratio: 16/6;
+
   padding-top: 185px;
   height: 100vh;
   h1,
@@ -31,13 +31,14 @@
 }
 .footerSocials {
   p {
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 18px;
     text-transform: uppercase;
     margin: 0;
     padding: 0;
-    margin-bottom: 27px;
+    margin-bottom: 0;
     color: #f8f2e8;
+    margin-bottom: -10px;
   }
   ul {
     display: flex;
@@ -46,6 +47,7 @@
     justify-content: space-between;
     padding: 0;
     margin: 0;
+
     li {
       a {
         color: #f8f2e8;
