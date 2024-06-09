@@ -47,6 +47,9 @@
           width: 100%;
         }
       }
+      &:last-child {
+        border-bottom: 2px solid black;
+      }
       a {
         color: #1e1e1e;
         padding: 0.8rem 0;
