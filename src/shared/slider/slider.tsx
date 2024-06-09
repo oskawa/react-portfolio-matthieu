@@ -23,8 +23,9 @@ export default function Slider(featuredProject: Project) {
   return (
     <div className={styles.slider}>
       <SimpleImageSlider
+        style={{ backgroundPosition: 'center' }}
         width={'100vw'}
-        height={'auto'}
+        height={'100vh'}
         images={allImages}
         showBullets={false}
         showNavs={false}
