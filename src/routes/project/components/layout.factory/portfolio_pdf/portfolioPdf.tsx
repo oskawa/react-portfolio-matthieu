@@ -1,5 +1,5 @@
 import { Document, Page } from 'react-pdf';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import styles from "./portfolioPdf.module.scss"
 import "react-pdf/dist/esm/Page/AnnotationLayer.css"
 import { pdfjs } from 'react-pdf';
@@ -11,18 +11,28 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 export function PortfolioPdf({ ...props }) {
   const [numPages, setNumPages] = useState<number>();
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
-  const [containerHeight, setContainerHeight] = useState<number>();
+  const [containerHeight, setContainerHeight] = useState<number>(window.innerHeight);
   const maxHeight = window.innerHeight;
   const [pageNumber, setPageNumber] = useState<number>(1);
 
-  const onResize = useCallback<ResizeObserverCallback>((entries) => {
-    const [entry] = entries;
 
-    if (entry) {
-      setContainerHeight(entry.contentRect.height);
-    }
+  useEffect(() => {
+    // Function to update container height
+    const updateContainerHeight = () => {
+      setContainerHeight(window.innerHeight);
+    };
+
+    // Set initial height
+    updateContainerHeight();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", updateContainerHeight);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateContainerHeight);
+    };
   }, []);
-
 
 
   function onDocumentLoadSuccess({ numPages: nextNumPages }: PDFDocumentProxy): void {
@@ -51,10 +61,8 @@ export function PortfolioPdf({ ...props }) {
             <Page
               renderTextLayer={false}
               pageNumber={pageNumber}
-              height={document.getElementsByClassName('portfolioPdf')[0]?.clientHeight * 0.8 ?? 150}
+              height={containerHeight ? containerHeight - 100 : 500}
             />
-
-
           </Document>
           <nav className={styles.pdfNav}>
             <ul className="pager">
