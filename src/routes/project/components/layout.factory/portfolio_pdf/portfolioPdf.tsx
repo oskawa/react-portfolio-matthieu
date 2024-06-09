@@ -71,7 +71,7 @@ export function PortfolioPdf({ ...props }) {
                   disabled={pageNumber === 1}
                   onClick={() => setPageNumber(pageNumber - 1)}
                 >
-                  Previous
+
                 </button>
               </li>
               <li className="next">
@@ -79,7 +79,7 @@ export function PortfolioPdf({ ...props }) {
                   disabled={pageNumber === numPages}
                   onClick={() => setPageNumber(pageNumber + 1)}
                 >
-                  Next
+
                 </button>
               </li>
             </ul>

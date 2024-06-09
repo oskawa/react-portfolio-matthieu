@@ -1,24 +1,14 @@
-.portfolioPdf {
-  display: flex;
-  justify-content: center;
-  height: 90vh;
-  .pdfInner {
-    height: 100%;
-    .react-pdf__Document {
-      height: 100%;
-      .react-pdf__Page {
-        width: 100% !important;
-        aspect-ratio: 16/9;
-        canvas {
-          width: 100% !important;
-          aspect-ratio: 16/9;
-        }
-      }
-    }
-  }
-}
 .pdfNav {
   margin: auto;
+  position: absolute;
+  bottom: 5%;
+  margin: auto;
+  transform: translateX(-50%);
+  left: 50%;
+  height: 40px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 2px 8px #202020;
   ul {
     display: flex;
     justify-content: center;
@@ -27,11 +17,56 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    height: 100%;
+    padding: 1rem;
+    li {
+      display: flex;
+    }
+
+    li:first-child {
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        background-image: url(../../../../../assets/arrow-project.svg);
+        width: 15px;
+        height: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transform: rotate(-136deg);
+      }
+    }
+    li:nth-child(2) {
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        background-image: url(../../../../../assets/arrow-project.svg);
+        width: 15px;
+        height: 20px;
+        transform: rotate(45deg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+    button:disabled {
+      opacity: 0.5;
+    }
   }
 }
+.pdfInner {
+  position: relative;
+}
 
-.react-pdf__Page__canvas {
+canvas {
   margin: 0 auto;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  border: 1px solid black;
+  min-height: 400px;
+
   // width: 80% !important;
   // height: 100% !important;
 }
