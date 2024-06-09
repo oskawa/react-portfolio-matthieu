@@ -2,6 +2,9 @@
   background-color: yellow;
   .rsis-container {
     background-color: red !important;
+    div {
+      background-position: center !important;
+    }
   }
   .rsis-image {
     background-position: center !important;

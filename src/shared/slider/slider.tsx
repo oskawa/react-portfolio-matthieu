@@ -24,7 +24,7 @@ export default function Slider(featuredProject: Project) {
     <div className={styles.slider}>
       <SimpleImageSlider
         width={'100vw'}
-        height={'100vh'}
+        height={'auto'}
         images={allImages}
         showBullets={false}
         showNavs={false}

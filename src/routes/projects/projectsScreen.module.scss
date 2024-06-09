@@ -37,10 +37,20 @@
     margin: 0;
     list-style: none;
     li {
+      hr {
+        border-top: 1px solid black;
+        margin: 0;
+        padding: 0;
+        transition: 400ms;
+        width: 0;
+        &.active {
+          width: 100%;
+        }
+      }
       a {
         color: #1e1e1e;
         padding: 0.8rem 0;
-        border-top: 1px solid black;
+
         text-transform: uppercase;
         display: block;
         text-decoration: none;
@@ -72,7 +82,7 @@
       }
       &:last-child {
         a {
-          border-bottom: 1px solid #1e1e1e;
+          // border-bottom: 1px solid #1e1e1e;
         }
       }
     }

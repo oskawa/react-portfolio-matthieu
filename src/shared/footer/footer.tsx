@@ -7,34 +7,57 @@ import React, { useState, useEffect } from 'react';
 import http from "../../api/http"
 import { Link } from "react-router-dom";
 import { path } from "../../routes/path";
+import MovingText from 'react-moving-text';
+import { InView, useInView } from "react-intersection-observer";
+
 
 export default function Footer() {
   const [socials, setsocials] = useState({});
-
+  const [loading, setLoading] = useState(true);
+  const string = "Let's collaborate";
+  const Letters = string.split(/( )/);
   useEffect(() => { fetchSocials() }, [])
-
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger only once when it comes into view
+  });
   async function fetchSocials() {
     try {
       const response = await http.get('options')
       setsocials(response.data)
-
-      // setLoading(false)
+      setLoading(false)
       // setError(false)
-
     } catch (error) {
-      // setLoading(false)
+      setLoading(false)
       // setError(true)
     }
   }
   return (
-    <footer>
+
+
+    <footer ref={ref}>
       <Grid>
         <div className={GridClasses.flex}>
           <div className={GridClasses.col12}>
             <h6 className={styles.footerTitle}><Link to={path.contact}>
-              Let's collaborate
-            </Link>
-            </h6>
+              {!loading && Letters.map((letter, index) => (
+                < MovingText
+                  key={index} // Ensure you provide a unique key for each element in the map
+                  type={!loading ? "fadeInFromBottom" : ""}
+                  duration="1000ms"
+                  delay={`${index * 100}ms`}
+                  direction="normal"
+                  timing="ease"
+                  iteration="1"
+                  fillMode="none"
+                >
+                  {letter}
+                </MovingText>
+              ))}
+            </Link></h6>
+
+
+
+
           </div>
         </div>
         <div className={`${GridClasses.flex} ${styles.footerSocials}`}>
@@ -58,6 +81,7 @@ export default function Footer() {
           </div>
         </div>
       </Grid>
-    </footer>
+    </footer >
   )
+
 }

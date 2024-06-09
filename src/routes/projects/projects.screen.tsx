@@ -8,6 +8,7 @@ import { replaceUrlParams } from "../../helpers/api.helpers"
 import Grid from "../../shared/grid/grid"
 import GridClasses from "../../shared/grid/grid.module.scss"
 import styles from './projectsScreen.module.scss'
+import { InView, useInView } from "react-intersection-observer";
 
 type projectsProps = { title?: string; showCTA?: boolean; isHome?: boolean }
 
@@ -17,10 +18,12 @@ export function ProjectsScreen({ title = "Selected works", showCTA = false, isHo
   const [error, setError] = useState<boolean>(false)
   const [isHovering, setIsHovering] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger only once when it comes into view
+  });
   async function fetchData() {
     try {
-      const response = await http.get('portfolio', { params: { count: 6, isHome: isHome } })
+      const response = await http.get('portfolio', { params: { count: 20, isHome: isHome } })
       setProjects(response.data)
       setLoading(false)
       setError(false)
@@ -49,7 +52,7 @@ export function ProjectsScreen({ title = "Selected works", showCTA = false, isHo
     window.removeEventListener('mousemove', handleMouseMove);
   };
 
-  return (<div>
+  return (<div ref={ref}>
     {!showCTA && (
       <section className={`${styles.heroProjects}`}>
         <Grid otherClass="h100">
@@ -103,7 +106,7 @@ export function ProjectsScreen({ title = "Selected works", showCTA = false, isHo
           </div>
           <div className={GridClasses.col12}>
             <ul className={styles.projectsList}>
-              {projects.map((project) => <li key={project.id}><Link onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} to={replaceUrlParams(path.project, { slug: project.slug })}>{project.title}</Link>
+              {projects.map((project) => <li key={project.id}><hr className={`${inView ? styles.active : ''}`}></hr><Link onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} to={replaceUrlParams(path.project, { slug: project.slug })}>{project.title}</Link>
                 {isHovering && (
                   <div className={styles.projectHover}
                     style={{
