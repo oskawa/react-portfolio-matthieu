@@ -36,11 +36,13 @@ export function ProjectScreen() {
           </h1>
         </section>
         <div className={styles.projectType}>
-          <div>
-            <p>{project[0].project_type}</p>
-          </div>
-          <div>
-            <p>{project[0].application_type}</p>
+          <div className={styles.projectTypeFlex}>
+            <div>
+              <p>{project[0].project_type}</p>
+            </div>
+            <div>
+              <p>{project[0].application_type}</p>
+            </div>
           </div>
         </div>
       </Grid>
