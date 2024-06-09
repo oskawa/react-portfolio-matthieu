@@ -8,6 +8,7 @@ import Grid from "../../shared/grid/grid";
 import GridClasses from "../../shared/grid/grid.module.scss";
 import styles from './projectsScreen.module.scss';
 import { useInView } from "react-intersection-observer";
+import { Loader } from "../../shared/loader/loader";
 
 type ProjectsProps = { title?: string; showCTA?: boolean; isHome?: boolean };
 
@@ -37,6 +38,9 @@ export function ProjectsScreen({ title = "Selected works", showCTA = false, isHo
   useEffect(() => {
     fetchData();
   }, []);
+  if (loading) {
+    return <Loader />;
+  }
 
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });

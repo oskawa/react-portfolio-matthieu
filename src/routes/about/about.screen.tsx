@@ -4,6 +4,7 @@ import http from "../../api/http"
 import Grid from "../../shared/grid/grid"
 import styles from "./aboutScreen.module.scss"
 import GridClasses from "../../shared/grid/grid.module.scss"
+import { Loader } from "../../shared/loader/loader"
 
 export function AboutScreen() {
   const [about, setAbout] = useState([])
@@ -23,9 +24,11 @@ export function AboutScreen() {
     }
 
 
-
   }
   useEffect(() => { fetchData() }, [])
+  if (loading) {
+    return <Loader />;
+  }
   if (about?.[0]) {
     return <div>
       <section className={`${styles.heroAbout}`}>

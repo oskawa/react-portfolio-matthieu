@@ -5,6 +5,7 @@ import LayoutsFactory from "./components/layout.factory/layout.factory"
 import styles from "./projectScreen.module.scss"
 import Grid from "../../shared/grid/grid"
 import GridClasses from "../../shared/grid/grid.module.scss"
+import { Loader } from "../../shared/loader/loader"
 export function ProjectScreen() {
   const [project, setProject] = useState([])
   const [loading, setLoading] = useState<boolean>(true)
@@ -26,6 +27,9 @@ export function ProjectScreen() {
     }
   }
   useEffect(() => { fetchData() }, [])
+  if (loading) {
+    return <Loader />;
+  }
 
   if (project?.[0]) {
     return <div>

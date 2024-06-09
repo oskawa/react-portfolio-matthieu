@@ -3,22 +3,27 @@ import styles from "./contactScreen.module.scss"
 import GridClasses from "../../shared/grid/grid.module.scss"
 import React, { useState, useEffect } from 'react';
 import http from "../../api/http"
+import { Loader } from "../../shared/loader/loader";
 
 export function ContactScreen() {
   const [socials, setsocials] = useState({});
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => { fetchSocials() }, [])
+  if (loading) {
+    return <Loader />;
+  }
 
   async function fetchSocials() {
     try {
       const response = await http.get('options')
       setsocials(response.data)
 
-      // setLoading(false)
+      setLoading(false)
       // setError(false)
 
     } catch (error) {
-      // setLoading(false)
+      setLoading(false)
       // setError(true)
     }
   }

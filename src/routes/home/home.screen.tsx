@@ -6,13 +6,14 @@ import styles from "./homeScreen.module.scss"
 import GridClasses from "../../shared/grid/grid.module.scss"
 import { ProjectsScreen } from "../projects/projects.screen"
 import Slider from "../../shared/slider/slider";
+import { Loader } from "../../shared/loader/loader"
 
 
 
 export function HomeScreen() {
   const [home, setHome] = useState<Home>([])
   const [featured, setFeatured] = useState<Featured>([])
-
+  const [showLoader, setShowLoader] = useState(true); // Manage loader visibility
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
 
@@ -30,7 +31,12 @@ export function HomeScreen() {
       setError(true)
     }
   }
+
   useEffect(() => { fetchData() }, [])
+
+  if (loading) {
+    return <Loader />;
+  }
   if (home?.[0]) {
     return <div>
       <section className={`${styles.heroHome}`}>
