@@ -9,6 +9,7 @@ import GridClasses from "../../shared/grid/grid.module.scss";
 import styles from './projectsScreen.module.scss';
 import { useInView } from "react-intersection-observer";
 import { Loader } from "../../shared/loader/loader";
+import MetaTags from "../../shared/metas/metatags";
 
 type ProjectsProps = { title?: string; showCTA?: boolean; isHome?: boolean };
 
@@ -59,6 +60,12 @@ export function ProjectsScreen({ title = "Selected works", showCTA = false, isHo
 
   return (
     <div ref={ref}>
+      <MetaTags
+        title='Portfolio of Matthieu Delomez - Projects'
+        description='List of my projects since 2018'
+        image=''
+        name='Matthieu Delomez'
+      />
       {!showCTA && (
         <section className={`${styles.heroProjects}`}>
           <Grid otherClass="h100">

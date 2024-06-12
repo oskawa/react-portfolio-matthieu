@@ -7,7 +7,7 @@ import GridClasses from "../../shared/grid/grid.module.scss"
 import { ProjectsScreen } from "../projects/projects.screen"
 import Slider from "../../shared/slider/slider";
 import { Loader } from "../../shared/loader/loader"
-
+import MetaTags from "../../shared/metas/metatags"
 
 
 export function HomeScreen() {
@@ -39,6 +39,12 @@ export function HomeScreen() {
   }
   if (home?.[0]) {
     return <div>
+      <MetaTags
+        title='Portfolio of Matthieu Delomez - Home'
+        description='Product and Visual Designer based in Montpellier since 2018'
+        image=''
+        name='Matthieu Delomez'
+      />
       <section className={`${styles.heroHome}`}>
         <Grid otherClass="h100">
           <div className={GridClasses.flex}>

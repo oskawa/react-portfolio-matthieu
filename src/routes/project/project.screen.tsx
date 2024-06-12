@@ -6,6 +6,7 @@ import styles from "./projectScreen.module.scss"
 import Grid from "../../shared/grid/grid"
 import GridClasses from "../../shared/grid/grid.module.scss"
 import { Loader } from "../../shared/loader/loader"
+import MetaTags from "../../shared/metas/metatags"
 export function ProjectScreen() {
   const [project, setProject] = useState([])
   const [loading, setLoading] = useState<boolean>(true)
@@ -33,6 +34,12 @@ export function ProjectScreen() {
 
   if (project?.[0]) {
     return <div>
+      <MetaTags
+        title='Portfolio of Matthieu Delomez - Projects'
+        description='List of my projects since 2018'
+        image=''
+        name='Matthieu Delomez'
+      />
       <Grid typeClass="containerFluid">
         <section className={`${styles.heroProject}`}>
           <h1 className={`${styles.heroTitle}`}>

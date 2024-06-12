@@ -4,6 +4,7 @@ import GridClasses from "../../shared/grid/grid.module.scss"
 import React, { useState, useEffect } from 'react';
 import http from "../../api/http"
 import { Loader } from "../../shared/loader/loader";
+import MetaTags from "../../shared/metas/metatags";
 
 export function ContactScreen() {
   const [socials, setsocials] = useState({});
@@ -28,6 +29,12 @@ export function ContactScreen() {
     }
   }
   return <section className={`${styles.heroContact}`}>
+    <MetaTags
+      title='Portfolio of Matthieu Delomez - Contact'
+      description='Product and Visual Designer based in Montpellier since 2018, contact me from here !'
+      image=''
+      name='Matthieu Delomez'
+    />
     <Grid otherClass="h100">
       <div className={GridClasses.flex}>
         <div className={GridClasses.col12}>
