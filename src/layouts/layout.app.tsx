@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../shared/header/header";
 import Footer from "../shared/footer/footer";
 import '../shared/responsive/max-desktop.scss';
+import '../shared/responsive/max-mobile.scss';
 
 export default function LayoutApp() {
   const location = useLocation();

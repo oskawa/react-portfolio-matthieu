@@ -33,3 +33,9 @@
     letter-spacing: -0.1px;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .heroTitle {
+    font-size: 60px;
+  }
+}

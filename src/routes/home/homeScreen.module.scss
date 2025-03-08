@@ -39,3 +39,31 @@
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  .heroHome {
+    h1 {
+      font-size: 60px;
+      position: relative;
+      span {
+        position: absolute;
+        top: -40px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .homeDescription {
+    padding: 80px 0;
+    .homeDescription_title {
+      margin-bottom: 0;
+    }
+    .homeDescription_paragraph {
+      p {
+        font-size: 40px;
+        text-indent: 0;
+        line-height: 1.3;
+      }
+    }
+  }
+}

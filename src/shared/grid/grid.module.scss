@@ -68,3 +68,26 @@ body {
   width: 100%;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 576px) {
+  body {
+    overflow-x: hidden;
+  }
+  .container {
+    .col9 {
+      width: 100%;
+    }
+    .col8 {
+      width: 100%;
+    }
+    .col10 {
+      width: 100%;
+    }
+    .col3 {
+      width: 100%;
+    }
+    .col4 {
+      width: 100%;
+    }
+  }
+}

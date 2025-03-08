@@ -50,7 +50,7 @@ export function AboutScreen() {
               <h2 className={styles.aboutDescription_title}>{about[0].section_title_about}</h2>
             </div>
           </div>
-          <div style={{ marginTop: '-1rem' }} className={`${GridClasses.flex} ${GridClasses.flexRight}`}>
+          <div style={{ marginTop: '-1rem' }} className={`${styles.responsiveMargin} ${GridClasses.flex} ${GridClasses.flexRight}`}>
             <div className={`${GridClasses.col10} ${styles.aboutDescription_paragraph}`} dangerouslySetInnerHTML={{ __html: about[0].section_paragraph_about }}>
             </div>
           </div>
